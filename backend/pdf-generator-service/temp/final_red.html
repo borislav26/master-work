@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example Pdf</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Palatino;
+    }
+    body {
+      background: #fff;
+      display: flex;
+      -webkit-justify-content: center;
+      -webkit-align-items: center;
+      min-height: 20vh;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      min-height: 100px;
+      background: #fff;
+      box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+      margin: 50px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+    .container .left_side {
+      position: relative;
+      background: #023020;
+      padding: 40px;
+    }
+    .container .right_side {
+      position: relative;
+      background: #fff;
+      padding: 40px;
+    }
+    .profileText {
+      position: relative;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-flex-direction: column;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .imageBox {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .imageBox img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      content: url("images.jpeg");
+    }
+
+    .profileText h2 {
+      color: #fff;
+      font-size: 1.5em;
+      margin-top: 20px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.4em;
+    }
+    .profileText h2 span {
+      font-size: 0.8em;
+      font-weight: 300;
+    }
+    .contactInfo {
+      padding-top: 40px;
+    }
+    .title {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .contactInfo ul {
+      position: relative;
+    }
+    .contactInfo ul li {
+      position: relative;
+      list-style: none;
+      margin: 10px 0;
+      cursor: pointer;
+      color: #fff;
+    }
+    .contactInfo ul li .icon {
+      display: inline-block;
+      width: 30px;
+      font-size: 18px;
+      color: #023020;
+    }
+    .contactInfo .education li {
+      margin-bottom: 15px;
+    }
+    .contactInfo .education h5 {
+      color: #023020;
+      font-weight: 500;
+    }
+    .contactInfo .education h4 {
+      color: #fff;
+      font-weight: 500;
+    }
+    .contactInfo .education h4:nth-child(2) {
+      color: #fff;
+      font-weight: 300;
+    }
+    .about {
+      margin-bottom: 50px;
+    }
+    .about:last-child {
+      margin-bottom: 0;
+    }
+    .title2 {
+      color: #023020;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .about .box {
+      display: flex;
+      flex-direction: row;
+      margin: 20px 0;
+    }
+    .about .box .yearCompany {
+      min-width: 150px;
+    }
+    .about .box .yearCompany h5 {
+      text-transform: uppercase;
+      color: #848c90;
+      font-weight: 600;
+    }
+    .about .box .text h4 {
+      text-transform: uppercase;
+      color: #03C03C;
+      font-size: 16px;
+    }
+    .skills .box {
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      justify-content: center;
+      align-items: center;
+    }
+    .skills .box h4 {
+      text-transform: uppercase;
+      color: #848c99;
+      font-weight: 500;
+    }
+    .skills .box .percent {
+      position: relative;
+      width: 100%;
+      height: 10px;
+      background: #f0f0f0;
+    }
+    .skills .box .percent div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #03C03C;
+    }
+    .interest ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .interest ul li {
+      list-style: none;
+      color: #333;
+      font-weight: 500;
+      margin: 10px 0;
+    }
+    .contactInfo .text {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left_side">
+    <div class="profileText">
+      <div class="imageBox">
+        <img src="images.jpeg" alt="this is profile image">
+      </div>
+      <h2>Borislav Petric<br><span>Software Engineer</span></h2>
+    </div>
+    <div class="contactInfo">
+      <h3 class="title">Contact info</h3>
+      <ul>
+        <li>
+          <span class="text">+381695557525</span>
+        </li>
+        <li>
+          <span class="text">borislavpetric66@gmail.com</span>
+        </li>
+        <li>
+          <span class="text">borislavpetric.com</span>
+        </li>
+        <li>
+          <span class="text">borislav.linkedin.com</span>
+        </li>
+      </ul>
+    </div>
+    <div class="contactInfo education">
+      <h3 class="title">Education</h3>
+      <ul>
+
+        <li>
+          <h5>2021-2023</h5>
+          <h4>Software Engineer</h4>
+          <h4>Faculty of Organisational Sciences</h4>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="contactInfo languages">
+      <h3 class="title">Languages</h3>
+      <ul>
+        <li>
+          <span class="text">English</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="right_side">
+    <div class="about">
+      <h2 class="title2">Profile</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="about">
+      <h2 class="title2">Experience</h2>
+      <div class="box">
+        <div class="yearCompany">
+          <h5>Company name</h5>
+          <h5>2017-2019</h5>
+        </div>
+        <div class="text">
+          <h4>Software engineer</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="yearCompany">
+          <h5>Company name</h5>
+          <h5>2017-2019</h5>
+        </div>
+        <div class="text">
+          <h4>Software engineer</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about skills">
+      <h2 class="title2">Programming languages</h2>
+      <div class="box">
+        <h4>HTML</h4>
+        <div class="percent">
+          <div style="width: 95%;"></div>
+        </div>
+      </div>
+      <div class="box">
+        <h4>CSS</h4>
+        <div class="percent">
+          <div style="width: 74%;"></div>
+        </div>
+      </div>
+      <div class="box">
+        <h4>Javascript</h4>
+        <div class="percent">
+          <div style="width: 98%;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

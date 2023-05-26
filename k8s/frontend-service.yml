@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-service
+  template:
+    metadata:
+      labels:
+        app: frontend-service
+    spec:
+      containers:
+        - name: frontend-service
+          image: boradocker26/master-work-frontend-serivice:1.0.0
+          env:
+            - name: REACT_APP_AUTHENTICATION_SERVICE_HOST
+              value: "authentication-service"
+            - name: REACT_APP_CV_MAKER_SERVICE_HOST
+              value: "cv-maker-service"
+            - name: REACT_APP_PDF_GENERATOR_SERVICE_HOST
+              value: "pdf-generator-service"
+            - name: DANGEROUSLY_DISABLE_HOST_CHECK
+              value: "true"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend-service
+  ports:
+    - protocol: TCP
+      name: web-port
+      port: 3000
+      targetPort: 3000
+

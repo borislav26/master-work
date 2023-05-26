@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-maker-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-maker-service
+  template:
+    metadata:
+      labels:
+        app: cv-maker-service
+    spec:
+      containers:
+        - name: cv-maker-service
+          image: boradocker26/master-work-cv-maker-serivice:1.0.0
+          env:
+            - name: GRPC_LOGGER_SERVICE_HOST
+              value: "logger-service:5001"
+            - name: GRPC_AUTHENTICATION_SERVICE_HOST
+              value: "authentication-service:5002"
+            - name: GRPC_PDF_GENERATOR_SERVICE_HOST
+              value: "pdf-generator-service:5003"
+            - name: GRPC_MAILER_SERVICE_HOST
+              value: "mailer-service:5006"
+            - name: HTTP_SERVER_PORT
+              value: ":4004"
+            - name: GRPC_SERVER_PORT
+              value: ":5004"
+            - name: DATABASE_URL
+              value: "postgres://postgres:@host.minikube.internal/master_work_cv_maker_service?sslmode=disable"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"
+          ports:
+            - containerPort: 4004
+            - containerPort: 5004
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cv-maker-service
+spec:
+  selector:
+    app: cv-maker-service
+  ports:
+    - protocol: TCP
+      name: web-port
+      port: 4004
+      targetPort: 4004
+    - protocol: TCP
+      name: grpc-port
+      port: 5004
+      targetPort: 5004
+

@@ -1,0 +1,18 @@
+.Chip {
+    border: 1px solid gray;
+    padding: 4px 8px;
+    width: 96px;
+    height: 48px;
+    background-color: lightgray;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Chip__blue {
+    background-color: lightblue;
+    color: darkblue;
+    border-color: cadetblue;
+}

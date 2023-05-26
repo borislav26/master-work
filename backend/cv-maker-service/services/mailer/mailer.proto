@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mailer;
+
+option go_package = "/mailer";
+
+message MaiData{
+  string toAddress = 1;
+  string firstName = 2;
+  string lastName = 3;
+  bytes createdCVData = 4;
+}
+
+message MailerRequest{
+  MaiData mailEntry = 1;
+}
+
+message MailerResponse{
+  bool result = 1;
+}
+
+service MailerService{
+  rpc SendEmail(MailerRequest) returns(MailerResponse);
+}

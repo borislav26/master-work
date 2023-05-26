@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: generator-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: generator-service
+  template:
+    metadata:
+      labels:
+        app: generator-service
+    spec:
+      containers:
+        - name: generator-service
+          image: boradocker26/master-work-generator-serivice:1.0.0
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 4005
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: generator-service
+spec:
+  selector:
+    app: generator-service
+  ports:
+    - protocol: TCP
+      name: web-port
+      port: 4005
+      targetPort: 4005
+

@@ -1,0 +1,21 @@
+.FinalStep {
+    display: flex;
+    justify-content: center;
+    padding: 160px 0;
+}
+
+.FinalStep__button {
+    background-color: wheat;
+    padding: 40px 120px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-property: box-shadow, transform;
+    transition: 0.3s;
+    font-size: 24px;
+    font-family: Monaco;
+}
+
+.FinalStep__button:hover, .FinalStep__button:focus, .FinalStep__button:active {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}

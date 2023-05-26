@@ -1,0 +1,4 @@
+/env/
+/frontend/node_modules/
+/volumes-data/
+/backend/generator-service/node_modules

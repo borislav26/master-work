@@ -1,0 +1,20 @@
+.LandingPage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.LandingPage__option {
+    background-color: wheat;
+    padding: 40px 120px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-property: box-shadow, transform;
+    transition: 0.3s;
+}
+
+.LandingPage__option:hover, .LandingPage__option:focus, .LandingPage__option:active {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}

@@ -1,0 +1,58 @@
+.AddExperience__box {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.AddExperience__input {
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Monaco';
+}
+
+.AddExperience__label {
+    padding: 12px;
+}
+
+.AddExperience__textAreaBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.AddExperience__textArea {
+    resize: none;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    height: 300px;
+    font-size: 20px;
+}
+
+.AddExperience {
+    position: relative;
+}
+
+.AddExperience__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.AddExperience__plus {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.AddExperience__minus {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

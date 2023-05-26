@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentication-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authentication-service
+  template:
+    metadata:
+      labels:
+        app: authentication-service
+    spec:
+      containers:
+        - name: authentication-service
+          image: boradocker26/master-work-authentication-service:1.0.0
+          env:
+            - name: SERVICE_NAME
+              value: "authentication-service"
+            - name: GRPC_SERVER_HOST
+              value: ":5002"
+            - name: HTTP_SERVER_PORT
+              value: ":4002"
+            - name: DATABASE_URL
+              value: "postgres://postgres:@host.minikube.internal/master_work?sslmode=disable"
+            - name: JWT_SECRET_TOKEN_KEY
+              value: "master_work"
+            - name: GRPC_LOGGER_SERVICE_HOST
+              value: "logger-service:5001"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "1028Mi"
+              cpu: "1000m"
+          ports:
+            - containerPort: 4002
+            - containerPort: 5002
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: authentication-service
+spec:
+  selector:
+    app: authentication-service
+  ports:
+    - protocol: TCP
+      name: web-port
+      port: 4002
+      targetPort: 4002
+    - protocol: TCP
+      name: grpc-port
+      port: 5002
+      targetPort: 5002
+

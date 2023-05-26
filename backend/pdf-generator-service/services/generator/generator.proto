@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package generator;
+
+option go_package = "/generator";
+
+message GeneratePDFFromTemplateAndDataProgrammingLanguage {
+  int64 id = 1;
+  string name = 2;
+  int64 percentage = 3;
+}
+
+message GeneratePDFFromTemplateAndDataEducation {
+  string faculty = 1;
+  string title = 2;
+  string from = 3;
+  string to = 4;
+}
+
+message GeneratePDFFromTemplateAndDataExperience {
+  string company = 1;
+  string jobTitle = 2;
+  string from = 3;
+  string to = 4;
+  string description = 5;
+}
+
+message GeneratePDFFromTemplateAndDataLanguage {
+  string name = 2;
+}
+
+message GeneratePDFFromTemplateAndDataUser {
+  string name = 1;
+  string email = 2;
+  string phoneNumber = 3;
+  repeated GeneratePDFFromTemplateAndDataProgrammingLanguage programmingLanguages = 4;
+  string description = 5;
+  repeated GeneratePDFFromTemplateAndDataEducation educations = 6;
+  repeated GeneratePDFFromTemplateAndDataExperience experiences = 7;
+  repeated GeneratePDFFromTemplateAndDataLanguage languages = 8;
+  string website = 9;
+  string linkedinProfile = 10;
+  string githubProfile = 11;
+  string profilePhotoBytes = 12;
+}
+
+message GeneratePDFFromTemplateAndDataRequest {
+  string template = 1;
+  GeneratePDFFromTemplateAndDataUser userData = 6;
+}
+
+message GeneratePDFFromTemplateAndDataResponse {
+  bool result = 1;
+  bytes pdfBytes = 2;
+}
+
+service GeneratorService {
+  rpc GeneratePDFFromTemplateAndData(GeneratePDFFromTemplateAndDataRequest) returns (GeneratePDFFromTemplateAndDataResponse);
+}

@@ -1,0 +1,12 @@
+.Languages {
+    display: flex;
+    justify-content: center;
+}
+
+.Languages__chips {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20px;
+    row-gap: 40px;
+}

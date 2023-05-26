@@ -1,0 +1,14 @@
+.ProfileInfo {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.ProfileInfo__textArea {
+    resize: none;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    width:800px;
+    height: 500px;
+    font-size: 20px;
+}

@@ -1,0 +1,59 @@
+.AddEducation__box {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.AddEducation__input {
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Monaco';
+}
+
+.AddEducation__label {
+    padding: 12px;
+}
+
+.AddEducation__textAreaBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.AddEducation__textArea {
+    resize: none;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    height: 300px;
+    font-size: 20px;
+}
+
+.AddEducation {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.AddEducation__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.AddEducation__plus {
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+}
+
+.AddEducation__minus {
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+}

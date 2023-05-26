@@ -1,0 +1,82 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: 'mongo'
+    ports:
+      - '27017:27017'
+
+  logger-service:
+    build: ./backend/logger-service
+    env_file:
+      - ./env/logger-service.env
+    ports:
+      - '5001:5001'
+    depends_on:
+      - mongodb
+
+  authentication-service:
+    build: ./backend/authentication-service
+    env_file:
+      - ./env/authentication-service.env
+    ports:
+      - '4002:4002'
+      - '5002:5002'
+    depends_on:
+      - logger-service
+
+  pdf-generator-service:
+    build: ./backend/pdf-generator-service
+    env_file:
+      - ./env/pdf-generator-service.env
+    ports:
+      - '5003:5003'
+      - '4003:4003'
+
+  cv-maker-service:
+    build: ./backend/cv-maker-service
+    env_file:
+      - ./env/cv-maker-service.env
+    ports:
+      - '4004:4004'
+
+  generator-service:
+    build: ./backend/generator-service
+
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+
+  mailer-service:
+    build: ./backend/mailer-service
+    env_file:
+      - ./env/mailer-service.env
+    ports:
+      - '5006:5006'
+
+  rabbitmq:
+    image: 'rabbitmq:3.9-alpine'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    deploy:
+      mode: replicated
+      replicas: 1
+    volumes:
+      - './volumes-data/rabbitmq/:/var/lib/rabbitmq'
+
+
+  frontend-service:
+    build: ./frontend
+    stdin_open: true
+    tty: true
+    env_file:
+      - ./env/frontend-service.env
+    ports:
+      - '3000:3000'
+    depends_on:
+      - authentication-service
+    volumes:
+      - ./frontend:/app/frontend

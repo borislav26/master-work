@@ -1,0 +1,29 @@
+.ContactInfo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+    max-width: 600px;
+}
+
+.ContactInfo__oneLine {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ContactInfo__label {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.ContactInfo__input {
+    width: 1000px;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Monaco';
+}

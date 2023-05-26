@@ -1,0 +1,13 @@
+.Logout {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.Logout__button {
+    font-family: Monaco;
+    height: 40px;
+    width: 120px;
+    border-radius: 3px;
+    cursor: pointer;
+}

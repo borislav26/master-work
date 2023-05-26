@@ -1,0 +1,23 @@
+.AllUserGenerated {
+    display: grid;
+    grid-template-columns: 600px 600px;
+    column-gap: 50px;
+    row-gap: 50px;
+    place-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.CVCreate__logout {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.CVCreate__logoutButton {
+    font-family: Monaco;
+    height: 40px;
+    width: 180px;
+    border-radius: 3px;
+    cursor: pointer;
+}

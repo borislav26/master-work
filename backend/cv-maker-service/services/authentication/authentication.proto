@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package authentication;
+
+option go_package = "/authentication";
+
+
+message CheckUserAuthenticationRequest {
+  string userToken = 1;
+}
+
+message CheckUserAuthenticationResponse {
+  bool result = 1;
+}
+
+message GetUserEmailFromTokenResponse {
+  string email = 1;
+}
+
+message FindUserByEmailRequest {
+  string email = 1;
+}
+
+message FindUserByEmailResponse {
+  int64 id = 1;
+  string email = 2;
+  string firstName = 3;
+  string lastName = 4;
+}
+
+service AuthenticationService {
+  rpc CheckUserAuthentication(CheckUserAuthenticationRequest) returns (CheckUserAuthenticationResponse);
+  rpc GetUserEmailFromToken(CheckUserAuthenticationRequest) returns (GetUserEmailFromTokenResponse);
+  rpc FindUserByEmail(FindUserByEmailRequest) returns (FindUserByEmailResponse);
+}
