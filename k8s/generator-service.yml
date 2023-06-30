@@ -17,11 +17,11 @@ spec:
           image: boradocker26/master-work-generator-serivice:1.0.0
           resources:
             requests:
-              memory: "128Mi"
+              memory: "512Mi"
               cpu: "250m"
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "1024Mi"
+              cpu: "1000m"
           ports:
             - containerPort: 4005
 

@@ -5,7 +5,7 @@ let cluster = null;
 async function getCluster() {
     if (!cluster) {
         cluster = await Cluster.Cluster.launch({
-            puppeteerOptions: { args: ["--no-sandbox","--font-render-hinting=none","--enable-font-antialiasing", "--disable-dev-shm-usage"] },
+            puppeteerOptions: { args: ["--no-sandbox","--font-render-hinting=none","--enable-font-antialiasing", "--disable-dev-shm-usage", "--disable-setuid-sandbox"] },
             concurrency: Cluster.Cluster.CONCURRENCY_CONTEXT,
             maxConcurrency: 2,
             headless: true,

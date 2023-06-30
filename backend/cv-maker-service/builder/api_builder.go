@@ -6,15 +6,14 @@ import (
 	"cv-maker-service/api/makers"
 	"cv-maker-service/api/programming_languages"
 	"cv-maker-service/database"
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func BuildApiLayer(dbManager database.GormDbManager, services *Services, engine *gin.Engine, emitter *Emitter) {
-	config := cors.DefaultConfig()
-	config.AllowHeaders = append(config.AllowHeaders, "*")
-	config.AllowAllOrigins = true
-	engine.Use(cors.New(config))
+	//config := cors.DefaultConfig()
+	//config.AllowHeaders = append(config.AllowHeaders, "*")
+	//config.AllowAllOrigins = true
+	//engine.Use(cors.New(config))
 
 	programming_languages.AddEndpoints(engine, dbManager, services.ProgrammingLanguageService, services.GRPCAuthenticationService)
 	languages.AddEndpoints(engine, dbManager, services.LanguageService, services.GRPCAuthenticationService)

@@ -10,7 +10,7 @@ func NewSMTPServer() *mail.SMTPServer {
 	server.KeepAlive = false
 	server.SendTimeout = 10 * time.Second
 	server.ConnectTimeout = 10 * time.Second
-	server.Host = "localhost"
+	server.Host = "mailhog"
 	server.Port = 1025
 	server.Username = ""
 	server.Password = ""
